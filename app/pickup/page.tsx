@@ -43,7 +43,7 @@ export default function PickupPage() {
         </div>
 
         <div className="section">
-          <h3 className="sectionTitle">Your Location</h3>
+          <h3 className="sectionTitle">Your Destination</h3>
           <div id="userLocationDisplay">
             {userLocation
               ? `Location Set: ${userLocation.lat.toFixed(4)}, ${userLocation.lng.toFixed(4)}`
@@ -55,7 +55,6 @@ export default function PickupPage() {
           <h3 className="sectionTitle">Pick-up</h3>
           <div className={`location-item ${selected === "main" ? "active" : ""}`} onClick={() => toggle("main")}>On Gordon College</div>
           <div className={`location-item ${selected === "annex" ? "active" : ""}`} onClick={() => toggle("annex")}>On Gordon College Annex</div>
-          <div className={`location-item ${selected === "outside" ? "active" : ""}`} onClick={() => toggle("outside")}>Outside School Campus</div>
         </div>
 
         <div className="request-section">
