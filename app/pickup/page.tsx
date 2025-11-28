@@ -7,6 +7,7 @@ export default function PickupPage() {
   const [selected, setSelected] = useState<string>("main");
   const [waiting, setWaiting] = useState(false);
   const [fare, setFare] = useState<string>("₱50.00");
+  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
 
   useEffect(() => {
     const base = 50;
@@ -28,13 +29,26 @@ export default function PickupPage() {
     }, 2000);
   };
 
+  const handleUserLocationChange = (lat: number, lng: number) => {
+    setUserLocation({ lat, lng });
+  };
+
   return (
     <div className="container">
-      <Map onUserLocationChange={() => {}} selectedDestinationKey={null} />
+      <Map onUserLocationChange={handleUserLocationChange} selectedDestinationKey={null} />
 
       <div className="sidebar">
         <div className="back-button-container">
           <button className="back-button" onClick={() => window.history.back()}>←</button>
+        </div>
+
+        <div className="section">
+          <h3 className="sectionTitle">Your Pick-up Location</h3>
+          <div id="userLocationDisplay">
+            {userLocation
+              ? `Location Set: ${userLocation.lat.toFixed(4)}, ${userLocation.lng.toFixed(4)}`
+              : "Click on the map to set location"}
+          </div>
         </div>
 
         <div className="section pick-up-location">
