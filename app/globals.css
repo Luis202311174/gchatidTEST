@@ -407,3 +407,197 @@ body {
 }
 
 /* --- End merged styles --- */
+
+/* Landing Page Styles */
+.landing-body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: var(--font-montserrat);
+  background: #1a2630;
+  position: relative;
+  overflow: hidden;
+}
+
+.bike-bg {
+  position: absolute;
+  top: 60px;
+  left: -35%;
+  z-index: 1;
+  width: 1500px;
+  height: auto;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: -10%;
+  z-index: 2;
+}
+
+.logo img {
+  width: 1200px;
+  height: auto;
+}
+
+.circle {
+  position: absolute;
+  left: -30%;
+  top: 10%;
+  width: 1500px;
+  height: 1500px;
+  background: #205073;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.landing-container {
+  position: absolute;
+  right: 5%;
+  top: 35%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-title {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+  width: 500px;
+  max-width: 90vw;
+}
+
+.input-field {
+  padding: 18px 20px;
+  border: none;
+  border-radius: 16px;
+  background: #545d65;
+  color: #fff;
+  font-size: 20px;
+  font-family: inherit;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.input-field::placeholder {
+  color: #c1c1c1;
+  font-size: 18px;
+}
+
+.login-btn {
+  padding: 16px 0;
+  width: 500px;
+  max-width: 80vw;
+  border: none;
+  border-radius: 18px;
+  background: #1671b7;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background: #125a91;
+}
+
+.admin-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.admin-link a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .landing-container {
+    right: 5%;
+    top: 15%;
+  }
+  .circle {
+    width: 500px;
+    height: 500px;
+    left: -35%;
+    top: -17%;
+  }
+  .input-group {
+    width: 95vw;
+  }
+  .login-btn {
+    width: 95vw;
+  }
+  .logo img {
+    width: 90px;
+  }
+  .bike-bg {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-title {
+    font-size: 32px;
+  }
+  .landing-container {
+    top: 10%;
+  }
+  .circle {
+    width: 300px;
+    height: 300px;
+    left: -55%;
+    top: -35%;
+  }
+  .logo img {
+    width: 60px;
+  }
+  .bike-bg {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+  .bike-bg,
+  .logo,
+  .circle {
+    display: none;
+  }
+  .landing-container {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 90%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding-top: 50px;
+    align-items: stretch;
+  }
+  .landing-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,88 +1,70 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function LoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Simple validation: check for Gmail address
+    if (!email.endsWith("@gmail.com")) {
+      setError("Please use a Gmail address");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required");
+      return;
+    }
+
+    // On success, redirect to options page
+    router.push("/options");
+  };
 
   return (
-    <div className="page-container">
-
-      <div className="modal-overlay">
-        <div className="modal-content">
-
-          <Card
-            title="Pick-up"
-            items={[
-              { text: "On Gordon College", good: true },
-              { text: "On Gordon College Annex", good: true },
-              { text: "Outside School Campus", good: false },
-            ]}
-            btn="Get Rider"
-            onClick={() => router.push("/pickup")}
-          />
-
-          <Card
-            title="Choose Location"
-            items={[
-              { text: "Near Gordon College", good: true },
-              { text: "Near Gordon College Annex", good: true },
-              { text: "Far location between campus", good: false },
-            ]}
-            btn="Open Map for Location"
-            onClick={() => router.push("/location")}
-          />
-
-          <Card
-            title="GC Pahatid"
-            items={[
-              { text: "Can be carried by motorcycle", good: true },
-              { text: "Must not be bigger than a helmet", good: true },
-              { text: "Oversized and 5kg Overweight", good: false },
-            ]}
-            btn="Pahatid Gamit"
-            onClick={() => router.push("/pahatid")}
-          />
+    <div className="landing-body">
+      <img src="/bike.png" alt="Bike" className="bike-bg" />
+      <div className="logo">
+        <img src="/GCHatid_Logo.png" alt="GCHatid Logo" />
+      </div>
+      <div className="circle"></div>
+      <div className="landing-container">
+        <div className="landing-title">WELCOME!</div>
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <input
+              className="input-field"
+              type="email"
+              placeholder="Enter Gordon College Domain Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="input-field"
+              type="password"
+              placeholder="Enter your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {error && <p style={{ color: "#ff6b6b", textAlign: "center" }}>{error}</p>}
+          <button type="submit" className="login-btn">
+            LOGIN
+          </button>
+        </form>
+        <div className="admin-link">
+          <a href="#" onClick={(e) => {e.preventDefault(); router.push("/admin");}}>Admin Login</a>
         </div>
       </div>
-
-    </div>
-  );
-}
-
-type CardItem = {
-  text: string;
-  good: boolean;
-};
-
-type CardProps = {
-  title: string;
-  items: CardItem[];
-  btn: string;
-  onClick: () => void;
-};
-
-function Card({ title, items, btn, onClick }: CardProps) {
-  return (
-    <div className="card">
-      <div className="card-header">{title}</div>
-
-      <hr className="divider" />
-
-      <ul className="card-list">
-        {items.map((item, i) => (
-          <li key={i} className="card-item">
-            <span className={item.good ? "check" : "cross"}>
-              {item.good ? "✓" : "✗"}
-            </span>
-            {item.text}
-          </li>
-        ))}
-      </ul>
-
-      <button className="card-btn" onClick={onClick}>
-        {btn}
-      </button>
     </div>
   );
 }
