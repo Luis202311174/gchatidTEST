@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Options Page",
+  title: "GCHatid",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
