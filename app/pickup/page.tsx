@@ -43,7 +43,7 @@ export default function PickupPage() {
         </div>
 
         <div className="section">
-          <h3 className="sectionTitle">Your Pick-up Location</h3>
+          <h3 className="sectionTitle">Your Location</h3>
           <div id="userLocationDisplay">
             {userLocation
               ? `Location Set: ${userLocation.lat.toFixed(4)}, ${userLocation.lng.toFixed(4)}`
