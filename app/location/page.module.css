@@ -1,0 +1,192 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 400px;
+  padding: 20px;
+  background-color: #2c4a69;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.backButton {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  padding: 8px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin-bottom: 25px;
+}
+
+.backButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #15c8ff;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.sectionTitle {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.locationDisplay {
+  background-color: #15c8ff;
+  color: #2c4a69;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.locationItem {
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.2s ease;
+}
+
+.locationItem:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.locationItem.active {
+  background-color: #1f568a;
+  border: 2px solid #15c8ff;
+  box-shadow: 0 0 10px rgba(21, 200, 255, 0.5);
+  font-weight: 600;
+}
+
+.distanceText {
+  font-size: 1.5em;
+  color: #15c8ff;
+  margin: 0;
+}
+
+.fareText {
+  font-size: 2em;
+  font-weight: bold;
+  color: #15c8ff;
+  margin: 0;
+}
+
+.makeRequestBtn {
+  width: 100%;
+  padding: 18px;
+  background-color: #26c166;
+  background-image: linear-gradient(to top, #26c166, #36d476);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(38, 193, 102, 0.4);
+}
+
+.makeRequestBtn:hover {
+  background-color: #1e9d56;
+  box-shadow: 0 2px 8px rgba(38, 193, 102, 0.6);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: rgba(44, 74, 105, 0.95);
+  padding: 40px 50px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #15c8ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 25px;
+}
+
+.cancelButton {
+  padding: 12px 25px;
+  background-color: #dc3545;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #c82333;
+}
+
+.userMarkerIcon > div {
+  background-color: #15c8ff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 50vh;
+    padding: 20px 15px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .makeRequestBtn {
+    padding: 16px;
+    font-size: 1.1em;
+  }
+}
