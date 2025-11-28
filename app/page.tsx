@@ -42,7 +42,7 @@ export default function LoginPage() {
             <input
               className="input-field"
               type="email"
-              placeholder="Enter Gordon College Domain Email"
+              placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
