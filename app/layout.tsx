@@ -9,6 +9,9 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: "GCHatid",
+  icons: {
+    icon: "/image-removebg-preview.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
